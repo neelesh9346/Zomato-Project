@@ -13,5 +13,16 @@ pipeline{
 				cleanWs()
 			}
 		}
+		stage('Code Checkout From Git'){
+		   steps{
+			git branch:'main', url:'https://github.com/neelesh9346/Zomato-Project.git'
+		   }
+		}
+		
+
+
+
+
+
 	}
 }
