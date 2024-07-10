@@ -51,6 +51,15 @@ pipeline{
 		     sh "trivy fs . > trivy.txt"
 		  }
 		}
+		stage("Docker Image Build and Push"){
+		   steps{
+		      withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
+			sh "docker build -t cloudzomato . "
+			sh "docker tag cloudzomato neelesh9346/cloudzomato:latest"
+			sh "docker push neelesh9346/cloudzomato:latest"
+		      }
+		   }
+		}
 
 
 
