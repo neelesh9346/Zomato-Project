@@ -48,7 +48,7 @@ pipeline{
 		}
 		stage("TRIVY FS SCAN"){
 		  steps{
-		     sh "trivyfs . >trivy.txt"
+		     sh "trivy fs . > trivy.txt"
 		  }
 		}
 
